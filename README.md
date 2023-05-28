@@ -45,10 +45,10 @@ Before you can get started with this project, make sure you have the following p
    ```sh
    pip install -r requirements.txt
    ```
-4. Enter your API in `get_members.py` and `mv_to_groups.py`
-   api_id = your_api_id
-   api_hash = your_api_hash
-   phone_number = your_number_internationl_format
+4. Enter your API data in `get_members.py` and `mv_to_groups.py`
+   * api_id = your_api_id  
+   * api_hash = your_api_hash 
+   * phone_number = your_number_internationl_format 
    
 
 
