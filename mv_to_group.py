@@ -12,52 +12,51 @@ phone_number = 'YOUR_PHONE_NUMBER'
 
 client = TelegramClient('session_name', api_id, api_hash)
 
-# Create a new instance of the TelegramClient
+# create a new instance of TelegramClient
 client = TelegramClient('session_name', api_id, api_hash)
 
 
 async def prompt_and_select_group():
-    # Connect to Telegram
+    # connect to telegram
     await client.start(phone_number)
 
-    # Get the list of available groups
+    # get list of available groups
     dialogs = await client.get_dialogs()
 
-    # Filter and print only own groups
+    # filter and print only own groups
     own_groups = []
-    print("Your Groups:")
+    print("Your Groups: ")
     for dialog in dialogs:
         if dialog.is_group:
             if dialog.entity.creator:
                 own_groups.append(dialog)
                 print(f"{len(own_groups)}. {dialog.entity.title}")
 
-    # Prompt the user to select a group
+    # prompt the user to select a group
     group_index = int(
         input("Enter the index of the group you want to move users to: "))
     selected_group = own_groups[group_index - 1].entity
 
-    # Disconnect from Telegram
+    # disconnect from telegram
     await client.disconnect()
 
     return selected_group
 
 
 async def move_users_to_group(target_group, csv_file):
-    # Connect to Telegram
     await client.start(phone_number)
 
-    # Get the input entity for the target group
+    # get the input entity for the target group
     target_group_entity = await client.get_entity(target_group)
 
-    # Read the CSV file and retrieve the user IDs
+    # read csv file and retrieve the members ID
     user_ids = []
     with open(csv_file, 'r') as file:
         reader = csv.DictReader(file)
         for row in reader:
             user_ids.append(int(row['User ID']))
 
-    # Move users to the target group
+    # move users to the target group
     for user_id in user_ids:
         try:
             if isinstance(target_group_entity, InputPeerChannel):
@@ -68,16 +67,16 @@ async def move_users_to_group(target_group, csv_file):
         except Exception as e:
             print(f"Failed to move user {user_id}: {e}")
 
-    # Disconnect from Telegram
+    # disconnect from telegram
     await client.disconnect()
 
-# Replace 'USERS_CSV_FILE' with the path to your CSV file containing the user data
+# replace 'users' with the path to your csv file containing the user data
 users_csv_file = 'users.csv'
 
-# Call the function to prompt and select the group
+# trigger the function to prompt and select the group
 selected_group = client.loop.run_until_complete(prompt_and_select_group())
 
-# Call the function to move users from CSV to the selected group
+# trigger the function to move users from CSV to the selected group
 with client:
     client.loop.run_until_complete(
         move_users_to_group(selected_group, users_csv_file))
