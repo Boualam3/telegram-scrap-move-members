@@ -1,0 +1,7 @@
+.vscode/
+venv/
+game.py
+get_data.py
+session_name.session
+users.cvs
+scrap.py
