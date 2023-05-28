@@ -1,15 +1,15 @@
 # telegram-scrap-move-members
+**Disclaimer: This tool is intended for educational and lawful purposes only. I am not responsible for any illegal or unethical use of this tool. Please ensure you comply with all applicable laws and respect the privacy and consent of Telegram users.**
+
+
+
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 
 
-
-
-
 <!-- GETTING STARTED -->
 ## Getting Started
-This open-source mini project allows you to scrape members from Telegram groups and add them to own groups automatically. 
-With this tool, you can easily grow your Telegram communities by leveraging existing groups.
+This project allows you to scrape members from one Telegram group and add them to own group. It provides a simple and efficient way to automate the process of adding members from one group to another, saving you time and effort.
 ### Prerequisites
 Before you can get started with this project, make sure you have the following prerequisites:
 
