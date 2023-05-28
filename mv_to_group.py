@@ -4,9 +4,9 @@ from telethon.tl.functions.messages import AddChatUserRequest
 from telethon.tl.types import InputPeerChannel
 import csv
 
-api_id = 25912041
-api_hash = '1e80ae432e20f44e80ce562aaf7e25e9'
-phone_number = '+213664445489'
+api_id = ''
+api_hash = ''
+phone_number = ''
 
 
 client = TelegramClient('session_name', api_id, api_hash)
